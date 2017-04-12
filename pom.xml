@@ -114,7 +114,7 @@
         </repository>
     </distributionManagement> -->
 
-    <repositories>
+ <!--   <repositories>
         <repository>
             <id>sonatype-nexus-snapshots</id>
             <name>Sonatype Nexus Snapshots</name>
@@ -126,7 +126,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
     <build>
 
         <plugins>
