@@ -37,6 +37,14 @@
         <!-- End of Ant-Git Deps-->
 
 
+
+        <!-- FLYWAY -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <!--  END OF FLYWAY -->
+
         <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit -->
         <!-- RETROFIT -->
         <dependency>
