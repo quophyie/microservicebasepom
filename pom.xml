@@ -103,7 +103,7 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
+   <!-- <distributionManagement>
         <snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -112,7 +112,7 @@
             <id>sonatype-nexus-snapshots</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-    </distributionManagement>
+    </distributionManagement>-->
 
     <repositories>
         <repository>
