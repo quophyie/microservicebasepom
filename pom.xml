@@ -6,7 +6,7 @@
 
     <groupId>com.github.quophyie</groupId>
     <artifactId>microservicebasepom</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>microservicebasepom</name>
@@ -16,7 +16,6 @@
         <groupId>com.github.quophyie</groupId>
         <artifactId>base-pom</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -38,7 +37,6 @@
             <version>3.2.0.201312181205-r</version>
         </dependency>
         <!-- End of Ant-Git Deps -->
-
 
 
         <!-- FLYWAY -->
@@ -120,7 +118,7 @@
         </repository>
     </distributionManagement> -->
 
- <!-- <repositories>
+  <repositories>
         <repository>
             <id>sonatype-nexus-snapshots</id>
             <name>Sonatype Nexus Snapshots</name>
@@ -132,7 +130,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories> -->
+    </repositories>
     <build>
 
         <plugins>
