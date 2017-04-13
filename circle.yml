@@ -1,3 +1,5 @@
+machine:
+  timezone: Europe/London
 test:
   override:
     - mvn deploy -Prun-its -s settings.xml

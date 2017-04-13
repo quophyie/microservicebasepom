@@ -6,6 +6,11 @@
             <username>${env.SONATYPE_USER}</username>
             <password>${env.SONATYPE_PASSWORD}</password>
         </server>
+        <server>
+            <id>sonatype-nexus-staging</id>
+            <username>${env.SONATYPE_USER}</username>
+            <password>${env.SONATYPE_PASSWORD}</password>
+        </server>
     </servers>
     <profiles>
         <profile>
@@ -15,10 +20,10 @@
             </properties>
         </profile>
         <profile>
-            <id>sonatype-staging</id>
+            <id>sonatype-nexus-staging</id>
             <repositories>
                 <repository>
-                    <id>sonatype-staging</id>
+                    <id>sonatype-nexus-staging</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                     <layout>default</layout>
                     <releases>
