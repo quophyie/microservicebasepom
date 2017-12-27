@@ -26,7 +26,7 @@
 
         <dependency>
             <groupId>com.github.quophyie</groupId>
-            <artifactId>shared</artifactId>
+            <artifactId>javashared</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
@@ -115,7 +115,39 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
+
+        <!--Spring Cloud Sleuth -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
+        <!-- QuantalGoDaddyLogger and GoDaddy Logger -->
+        <dependency>
+            <groupId>com.godaddy</groupId>
+            <artifactId>logging</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+        <!-- QuantalGoDaddyLogger and GoDaddy Logger -->
     </dependencies>
+
+    <!--Spring Cloud Sleuth Dependency Management-->
+
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Brixton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 
    <!-- <distributionManagement>
         <snapshotRepository>
