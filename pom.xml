@@ -30,6 +30,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+
         <!-- Ant-Git Deps -->
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
@@ -122,14 +123,6 @@
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
-        <!-- QuantalGoDaddyLogger and GoDaddy Logger -->
-        <dependency>
-            <groupId>com.godaddy</groupId>
-            <artifactId>logging</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-
-        <!-- QuantalGoDaddyLogger and GoDaddy Logger -->
     </dependencies>
 
     <!--Spring Cloud Sleuth Dependency Management-->
@@ -174,8 +167,124 @@
         </repository>
     </repositories>
     <build>
+        <sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-maven-plugin</artifactId>
+                    <version>1.16.16.0</version>
+                    <executions>
+                        <execution>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>delombok</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <addOutputDirectory>false</addOutputDirectory>
+                        <sourceDirectory>src/main/java</sourceDirectory>
+                    </configuration>
+                </plugin>
 
-        <plugins>
+<!--                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <configuration>
+                        <showWeaveInfo/>
+                        <forceAjcCompile>true</forceAjcCompile>
+                        <complianceLevel>1.8</complianceLevel>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <verbose>true</verbose>
+                        <aspectLibraries>
+                            <aspectLibrary>
+                                <groupId>org.springframework</groupId>
+                                <artifactId>spring-aspects</artifactId>
+                            </aspectLibrary>
+                        </aspectLibraries>
+                        &lt;!&ndash;<weaveDependencies>
+                            <dependency>
+                                <groupId>com.github.quophyie</groupId>
+                                <artifactId>shared</artifactId>
+                            </dependency>
+                        </weaveDependencies>- ->
+                        <!- -<fork>true</fork>&ndash;&gt;
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>test-compile</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        &lt;!&ndash;<fork>false</fork>&ndash;&gt;
+                        <agent>
+                            &lt;!&ndash;<aspectj>${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</aspectj>&ndash;&gt;
+                            ${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar,${user.home}/.m2/repository/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar
+                        </agent>
+                        <jvmArguments>
+                            -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+                            &lt;!&ndash; -javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+                                -javaagent:${user.home}/.m2/repository/org/springframework/spring-instrument/${spring.version}/spring-instrument-${spring.version}.jar &ndash;&gt;
+
+
+                            -Dspring.datasource.url=jdbc:postgresql://localhost:5433/quantal_exchange_users
+                            -Dspring.datasource.username=postgres
+                            -Dspring.datasource.password=postgres
+                            -Dspring.datasource.platform=postgresql
+                            -Dspring.datasource.initialize=true
+                            -Dapi.gateway.base-url=http://localhost:8001
+                            -DAUTH_SERVICE_ENDPOINT=http://localhost:3000
+                        </jvmArguments>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.springframework.boot.experimental</groupId>
+                            <artifactId>spring-boot-thin-layout</artifactId>
+                            <version>${thin-jar.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.aspectj</groupId>
+                            <artifactId>aspectjweaver</artifactId>
+                            <version>${aspectj.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <argLine>-javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine>
+                    </configuration>
+                </plugin>-->
+            </plugins>
+        </pluginManagement>
+
+            <plugins>
+                <plugin>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-maven-plugin</artifactId>
+                </plugin>
+                <!--
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                </plugin>-->
 
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
