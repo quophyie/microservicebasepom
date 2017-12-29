@@ -176,7 +176,7 @@
         </resources>
         <pluginManagement>
             <plugins>
-                <plugin>
+           <!--     <plugin>
                     <groupId>org.projectlombok</groupId>
                     <artifactId>lombok-maven-plugin</artifactId>
                     <version>1.16.16.0</version>
@@ -194,7 +194,7 @@
                     </configuration>
                 </plugin>
 
-<!--                <plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
                     <configuration>
