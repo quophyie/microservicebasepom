@@ -167,7 +167,7 @@
         </repository>
     </repositories>
     <build>
-       <!--<sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>-->
+       <sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -251,6 +251,13 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <argLine>-javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine>
+                    </configuration>
+                </plugin>
 
                 <!--<plugin>
                     <groupId>org.springframework.boot</groupId>
@@ -300,15 +307,6 @@
         </pluginManagement>
 
             <plugins>
-                <plugin>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok-maven-plugin</artifactId>
-                </plugin>
-                <!--
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>aspectj-maven-plugin</artifactId>
-                </plugin>-->
 
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
