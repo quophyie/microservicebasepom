@@ -167,7 +167,7 @@
         </repository>
     </repositories>
     <build>
-       <sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>
+       <!--<sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -190,7 +190,9 @@
                     </executions>
                     <configuration>
                         <addOutputDirectory>false</addOutputDirectory>
+                        <outputDirectory>${project.build.directory}/delombok</outputDirectory>
                         <sourceDirectory>src/main/java</sourceDirectory>
+                        <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -204,6 +206,15 @@
                         <target>1.8</target>
                         <verbose>true</verbose>
                         <XnoInline>true</XnoInline>
+                        <sources>
+                            <source>
+                                <basedir>src/main/java</basedir>
+                                <includes>
+                                    <include>${project.build.directory}/delombok/**/*.java</include>
+                                    <include>${project.build.directory}/delombok/**/*.aj</include>
+                                </includes>
+                            </source>
+                        </sources>
                         <aspectLibraries>
                             <aspectLibrary>
                                 <groupId>com.github.quophyie</groupId>
