@@ -167,7 +167,7 @@
         </repository>
     </repositories>
     <build>
-       <!-- <sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>-->
+       <!--<sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -176,7 +176,7 @@
         </resources>
         <pluginManagement>
             <plugins>
-           <!--     <plugin>
+                <plugin>
                     <groupId>org.projectlombok</groupId>
                     <artifactId>lombok-maven-plugin</artifactId>
                     <version>1.16.16.0</version>
@@ -193,7 +193,6 @@
                         <sourceDirectory>src/main/java</sourceDirectory>
                     </configuration>
                 </plugin>
-
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
@@ -204,19 +203,44 @@
                         <source>1.8</source>
                         <target>1.8</target>
                         <verbose>true</verbose>
+                        <XnoInline>true</XnoInline>
                         <aspectLibraries>
                             <aspectLibrary>
-                                <groupId>org.springframework</groupId>
-                                <artifactId>spring-aspects</artifactId>
+                                <groupId>com.github.quophyie</groupId>
+                                <artifactId>javashared</artifactId>
                             </aspectLibrary>
                         </aspectLibraries>
-                        &lt;!&ndash;<weaveDependencies>
+                        <weaveDependencies>
                             <dependency>
-                                <groupId>com.github.quophyie</groupId>
-                                <artifactId>shared</artifactId>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>retrofit</artifactId>
                             </dependency>
-                        </weaveDependencies>- ->
-                        <!- -<fork>true</fork>&ndash;&gt;
+
+                            <dependency>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>converter-gson</artifactId>
+                            </dependency>
+
+                            <dependency>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>converter-jackson</artifactId>
+                            </dependency>
+
+                            <dependency>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>adapter-java8</artifactId>
+                            </dependency>
+
+                            <dependency>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>adapter-guava</artifactId>
+                            </dependency>
+
+                            <dependency>
+                                <groupId>com.squareup.retrofit2</groupId>
+                                <artifactId>converter-scalars</artifactId>
+                            </dependency>
+                        </weaveDependencies>
                     </configuration>
                     <executions>
                         <execution>
@@ -228,7 +252,7 @@
                     </executions>
                 </plugin>
 
-                <plugin>
+                <!--<plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <configuration>
