@@ -24,6 +24,12 @@
 
     <dependencies>
 
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.github.quophyie</groupId>
             <artifactId>javashared</artifactId>
@@ -86,6 +92,16 @@
         </dependency>
 
         <!-- END OF RETROFIT -->
+
+        <!-- H2 Config -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- END OF H2 Conffig-->
+
 
         <!-- HOVERFLY SERVICE VIRTUALIZATION -->
         <!-- <dependency>
