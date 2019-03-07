@@ -112,6 +112,12 @@
         </dependency> -->
 
         <dependency>
+            <groupId>de.invesdwin</groupId>
+            <artifactId>invesdwin-instrument</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.specto</groupId>
             <artifactId>hoverfly-java</artifactId>
             <version>RELEASE</version>
@@ -181,6 +187,11 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+       <repository>
+          <id>invesdwin</id>
+          <name>invesdwin repo</name>
+          <url>http://invesdwin.de/artifactory/invesdwin-oss-remote</url>
+       </repository>
     </repositories>
     <build>
        <!--<sourceDirectory>${project.build.directory}/generated-sources/delombok</sourceDirectory>-->
@@ -222,6 +233,9 @@
                         <target>1.8</target>
                         <verbose>true</verbose>
                         <XnoInline>true</XnoInline>
+                        <Xset>
+                            <overWeaving>true</overWeaving>
+                        </Xset>
                         <sources>
                             <source>
                                 <basedir>src/main/java</basedir>
@@ -271,6 +285,7 @@
                     </configuration>
                     <executions>
                         <execution>
+                            <phase>deploy</phase>
                             <goals>
                                 <goal>compile</goal>
                                 <goal>test-compile</goal>
